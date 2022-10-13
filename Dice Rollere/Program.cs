@@ -5,15 +5,15 @@ run();
 
 
 
-void run( int returnvalue1,  int returnvalue2, int sides)
+void run()
 {
-
+    int returnvalue1, returnvalue2, sides;
 
     while (true)
     {
         int rollNumber = 1;
-        roll();
-        combo( returnvalue1, returnvalue2, sides);
+        roll(out returnvalue1, out returnvalue2, out sides);
+        combo( returnvalue1,  returnvalue2, sides);
         Console.WriteLine("Would you like to play again? y or n");
         string answer = Console.ReadLine();
         answer.ToLower();
@@ -33,14 +33,14 @@ void run( int returnvalue1,  int returnvalue2, int sides)
 }
 
 
-void roll()
+void roll(out int returnvalue1, out int returnvalue2, out int sides)
 {
     
     Random random1 = new Random();
     Random random2 = new Random();
-    int sides = Convert.ToInt32(Console.ReadLine());
-    int returnvalue1 = random1.Next(1,sides);  
-    int returnvalue2 = random2.Next(1,sides);
+     sides = Convert.ToInt32(Console.ReadLine());
+     returnvalue1 = random1.Next(1,sides);  
+     returnvalue2 = random2.Next(1,sides);
     Console.WriteLine($"you rolled a {returnvalue1} and a {returnvalue2} {returnvalue1 + returnvalue2} Total" );
 }
 
